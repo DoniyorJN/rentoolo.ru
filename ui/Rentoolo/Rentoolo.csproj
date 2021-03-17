@@ -446,6 +446,7 @@
     <Content Include="CraftsMan\CraftsManTasks.aspx" />
     <Content Include="CreateComplaint.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="DoniyorJN\AddNewsDoniyorJN.aspx" />
     <Content Include="DoniyorJN\NewsDoniyorJN.aspx" />
     <Content Include="Empty.aspx" />
     <Content Include="ExchangeProductsPage.aspx" />
@@ -505,6 +506,7 @@
     <Content Include="Model\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="DoniyorJN\Web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="img\avatars\noPhoto.png" />
     <Content Include="img\a\jq7zG55bw0eBi3zo5cLr7A.jpg" />
@@ -1422,6 +1424,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoniyorJN\AddNewsDoniyorJN.aspx.cs">
+      <DependentUpon>AddNewsDoniyorJN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoniyorJN\AddNewsDoniyorJN.aspx.designer.cs">
+      <DependentUpon>AddNewsDoniyorJN.aspx</DependentUpon>
     </Compile>
     <Compile Include="DoniyorJN\NewsDoniyorJN.aspx.cs">
       <DependentUpon>NewsDoniyorJN.aspx</DependentUpon>

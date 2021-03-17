@@ -14,5 +14,23 @@ namespace Rentoolo.Model
                 return list;
             }
         }
+
+        public static void AddNews(NewsDoniyorJN item)
+        {
+            using (var ctx = new RentooloEntities())
+            {
+
+                ctx.NewsDoniyorJN.Add(item);
+
+                try
+                {
+                    ctx.SaveChanges();
+                }
+                catch (System.Exception ex)
+                {
+                    DataHelper.AddException(ex);
+                }
+            }
+        }
     }
 }
