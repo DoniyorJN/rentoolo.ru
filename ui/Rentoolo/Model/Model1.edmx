@@ -521,6 +521,17 @@ warning 6002: The table/view 'Rentoolo.dbo.Categories' does not have a primary k
           <Property Name="CreateDate" Type="datetime" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="NewsDoniyorJN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="AuthorId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="NewsEducation">
           <Key>
             <PropertyRef Name="Id" />
@@ -1375,6 +1386,7 @@ warning 6002: The table/view 'Rentoolo.dbo.RentedTime' does not have a primary k
           <EntitySet Name="NewsAntares" EntityType="Self.NewsAntares" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NewsAzizjan" EntityType="Self.NewsAzizjan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NewsBatrebleSs" EntityType="Self.NewsBatrebleSs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsDoniyorJN" EntityType="Self.NewsDoniyorJN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NewsEducation" EntityType="Self.NewsEducation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NewsEducationBlacklake" EntityType="Self.NewsEducationBlacklake" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NewsEoll73" EntityType="Self.NewsEoll73" Schema="dbo" store:Type="Tables" />
@@ -2059,6 +2071,17 @@ warning 6002: The table/view 'Rentoolo.dbo.RentedTime' does not have a primary k
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="AuthorId" Type="Guid" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NewsDoniyorJN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AuthorId" Type="Guid" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="NewsEducation">
@@ -2764,6 +2787,7 @@ warning 6002: The table/view 'Rentoolo.dbo.RentedTime' does not have a primary k
           <EntitySet Name="NewsAntares" EntityType="Self.NewsAntares" />
           <EntitySet Name="NewsAzizjan" EntityType="Self.NewsAzizjan" />
           <EntitySet Name="NewsBatrebleSs" EntityType="Self.NewsBatrebleSs" />
+          <EntitySet Name="NewsDoniyorJN" EntityType="Self.NewsDoniyorJN" />
           <EntitySet Name="NewsEducation" EntityType="Self.NewsEducation" />
           <EntitySet Name="NewsEducationBlacklake" EntityType="Self.NewsEducationBlacklake" />
           <EntitySet Name="NewsEoll73" EntityType="Self.NewsEoll73" />
@@ -3668,6 +3692,18 @@ warning 6002: The table/view 'Rentoolo.dbo.RentedTime' does not have a primary k
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsDoniyorJN">
+            <EntityTypeMapping TypeName="RentooloModel.NewsDoniyorJN">
+              <MappingFragment StoreEntitySet="NewsDoniyorJN">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
               </MappingFragment>
             </EntityTypeMapping>

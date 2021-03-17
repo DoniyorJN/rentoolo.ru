@@ -69,6 +69,7 @@ namespace Rentoolo.Model
         public virtual DbSet<NewsAntares> NewsAntares { get; set; }
         public virtual DbSet<NewsAzizjan> NewsAzizjan { get; set; }
         public virtual DbSet<NewsBatrebleSs> NewsBatrebleSs { get; set; }
+        public virtual DbSet<NewsDoniyorJN> NewsDoniyorJN { get; set; }
         public virtual DbSet<NewsEducation> NewsEducation { get; set; }
         public virtual DbSet<NewsEducationBlacklake> NewsEducationBlacklake { get; set; }
         public virtual DbSet<NewsEoll73> NewsEoll73 { get; set; }

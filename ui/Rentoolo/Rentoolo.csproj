@@ -446,6 +446,7 @@
     <Content Include="CraftsMan\CraftsManTasks.aspx" />
     <Content Include="CreateComplaint.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="DoniyorJN\NewsDoniyorJN.aspx" />
     <Content Include="Empty.aspx" />
     <Content Include="ExchangeProductsPage.aspx" />
     <Content Include="Fail.aspx" />
@@ -477,6 +478,16 @@
     <Content Include="HomeGarden.aspx" />
     <Content Include="Job.aspx" />
     <Content Include="Manager\Web.config" />
+    <Content Include="Model\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
     <Content Include="News.aspx" />
     <Content Include="PersonalGoods.aspx" />
     <Content Include="Pets.aspx" />
@@ -484,6 +495,9 @@
     <Content Include="Services.aspx" />
     <Content Include="Success.aspx" />
     <Content Include="yandex_f9c03f80c16c0af8.html" />
+    <Content Include="AdminMaster.Master" />
+    <Content Include="Events.ashx" />
+    <Content Include="CraftsMan\assetsCM\categoriesCraftsMan_ru.json" />
     <EntityDeploy Include="Model\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -491,9 +505,6 @@
     <Content Include="Model\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="AdminMaster.Master" />
-    <Content Include="Events.ashx" />
-    <Content Include="CraftsMan\assetsCM\categoriesCraftsMan_ru.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="img\avatars\noPhoto.png" />
     <Content Include="img\a\jq7zG55bw0eBi3zo5cLr7A.jpg" />
@@ -508,16 +519,6 @@
     <Content Include="img\kitchen\venskie-vafli.jpg" />
     <Content Include="img\kitchen\vozdushnie-blini-na-pahte.jpg" />
     <Content Include="Manager\ManageAdvert.aspx" />
-    <Content Include="Model\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Content Include="Rent.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1422,6 +1423,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DoniyorJN\NewsDoniyorJN.aspx.cs">
+      <DependentUpon>NewsDoniyorJN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoniyorJN\NewsDoniyorJN.aspx.designer.cs">
+      <DependentUpon>NewsDoniyorJN.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Empty.aspx.cs">
       <DependentUpon>Empty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1575,6 +1583,7 @@
     <Compile Include="Model\DataHelperAzizjan.cs" />
     <Compile Include="Model\DataHelperBatrebleSs.cs" />
     <Compile Include="Model\DataHelperBlacklake.cs" />
+    <Compile Include="Model\DataHelperDoniyorJN.cs" />
     <Compile Include="Model\DataHelperEducation.cs" />
     <Compile Include="Model\DataHelperEoll73.cs" />
     <Compile Include="Model\DataHelperGGdotNET.cs" />
@@ -1694,6 +1703,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\NewsBatrebleSs.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\NewsDoniyorJN.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\NewsEducation.cs">
@@ -2056,6 +2068,13 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
